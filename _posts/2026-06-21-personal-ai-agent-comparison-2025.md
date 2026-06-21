@@ -24,7 +24,7 @@ tags_color: '#0056fe'
 | 범용 어시스턴트 | Claude, ChatGPT, Gemini, Copilot | 가장 넓은 사용자층, 멀티모달 |
 | 개발자 특화 | Cursor, Devin, Cline, aider | 코드베이스 이해 + 자율 실행 |
 | 메모리·컨텍스트 특화 | Mem.ai, Rewind AI, Notion AI | 장기 기억·지식 관리 |
-| 오픈소스 자가호스팅 | Open Interpreter, AutoGPT, Home Assistant | 로컬 실행·완전 제어 |
+| 오픈소스 자가호스팅 | Hermes Agent, Open Interpreter, AutoGPT, Home Assistant | 로컬 실행·완전 제어·자기 개선 |
 | 최신 주목작 | Rabbit r1, Perplexity, Motion AI | 새로운 형태·특화 도메인 |
 
 ---
@@ -127,6 +127,18 @@ macOS에서 화면·음성을 **100% 로컬 암호화 저장**해 "모든 것을
 
 ### 오픈소스 자가호스팅
 
+#### Hermes Agent (Nous Research)
+
+2026년 2월 출시 후 4개월 만에 GitHub 스타 188K+를 달성한 **자기 개선형 오픈소스 에이전트**. "The Agent That Grows With You" — 어려운 작업을 해결할 때마다 재사용 가능한 스킬 문서를 자동으로 작성해 다음 번에는 더 잘 처리합니다. 2026년 5월 기준 OpenRouter에서 가장 많이 사용되는 AI 에이전트.
+
+- **메모리**: MEMORY.md + USER.md 고정 주입(세션 시작 시) + SQLite FTS5 전체 대화 저장. 세션 간 컨텍스트가 완전히 유지됨
+- **도구**: 웹 검색, Playwright 브라우저 자동화, 코드 실행, 이미지 생성, TTS, 비전 분석 등 40+
+- **플랫폼**: Telegram, Discord, Slack, WhatsApp, Signal, iMessage, Email, DingTalk 등 20+ 메시징 플랫폼 단일 에이전트로 처리
+- **실행 백엔드**: 로컬, Docker, SSH, Modal, Daytona — 클라우드 전송 없음
+- **모델**: Claude, GPT, Gemini, 로컬 Ollama 등 300+ 모델 선택 가능 (Hermes LLM 전용 아님)
+- **자연어 스케줄러**: "매일 아침 9시에 뉴스 요약" 같은 명령으로 크론 등록
+- **과금**: 완전 무료 (MIT) — 호스팅 $4~25/월 + LLM API $2~60/월
+
 #### Open Interpreter
 
 로컬 OS에서 코드 실행·브라우저 자동화. Rust 재작성으로 속도 개선. MCP + Agent Client Protocol 지원. DeepSeek·Kimi 등 저비용 모델 최적화 (64.1k ⭐).
@@ -175,6 +187,7 @@ AI가 업무·프로젝트·캘린더를 자동 계획·재계획. 변경 사항
 | Mem.ai | 전체 워크스페이스 | ✗ | Slack/Gmail | ✗ | ✗ | ✗ |
 | Rewind AI | 로컬 타임라인 전체 | ✓ | 모든 Mac 앱 | ✗ | **완전 로컬** | ✗ |
 | Notion AI | 워크스페이스 전체 | ✓ | Slack/Drive 등 | ✗ | ✗ | ✗ |
+| Hermes Agent | **세션 간 영구 메모리** | ✓ | 20+ 메시징 플랫폼 | 터미널·Docker | **완전 로컬** | **자연어 크론** |
 | Open Interpreter | ✗ | ✗ | 로컬 파일 | **OS 네이티브** | **완전 로컬** | ✗ |
 | AutoGPT | 벡터 DB | ✓ | API/웹 | 코드 실행 | 셀프호스팅 | ✗ |
 | Home Assistant | 스마트홈 DB | 음성 | 3,000+ 디바이스 | ✗ | **완전 로컬** | 자동화 룰 |
