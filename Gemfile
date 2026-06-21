@@ -1,8 +1,7 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "jekyll-theme-chirpy", "~> 7.3"
-
-group :jekyll_plugins do
-  gem "jekyll-feed"
-  gem "jekyll-sitemap"
-end
+gem "github-pages", "~> 232", group: :jekyll_plugins
+gem "jekyll-paginate"
+gem "jekyll-sitemap"
+gem "kramdown-parser-gfm"
+gem "webrick", "~> 1.7"

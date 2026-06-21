@@ -1,0 +1,120 @@
+#-------------------------------
+# Site Settings
+title: Atin's Notes
+logo:
+description: AI, 개발, 그리고 생각들을 기록하는 공간
+color_scheme: auto
+
+
+#-------------------------------
+# Navigation Settings
+menu__settings:
+  menu__items:
+    - title: 'Home'
+      url: '/'
+    - title: 'Blog'
+      url: '/blog/'
+    - title: 'About'
+      url: '/about/'
+
+
+#-------------------------------
+# Hero Settings
+hero:
+  enable: true
+  hero__title: AI와 개발, 그리고 생각들.
+  hero__description: 최신 기술 트렌드부터 개인적인 인사이트까지 — 탐구하고 기록합니다.
+  hero__image:
+
+
+#-------------------------------
+# Author Global Settings
+author:
+  author__name: Atin Jin
+  author__bio: AI 엔지니어. 개인 AI 에이전트 연구 및 개발.
+  author__avatar:
+
+
+#-------------------------------
+# Blog Section Settings
+blog__settings:
+  enable: true
+  blog__title: 최신 글
+  blog__description:
+
+
+#-------------------------------
+# Videos Section Settings
+videos__settings:
+  enable: false
+  videos__title: Latest Videos
+  videos__description:
+
+
+#-------------------------------
+# Tag Section Settings
+tag__settings:
+  enable: true
+  tag: ai
+
+
+#-------------------------------
+# Author Section Settings
+author__section:
+  enable: false
+  author__section__title:
+  author__section__description:
+  aurhor__section__button__text:
+  aurhor__section__button__link:
+  author__section__big__image:
+  author__section__small__image:
+
+
+#-------------------------------
+# Newsletter Settings
+mailchimp__settings:
+  enable: false
+  mailchimp__title:
+  mailchimp__description:
+  mailchimp__identifier:
+  mailchimp__input__text:
+  mailchimp__button__text:
+  mailchimp__background__image:
+
+
+#-------------------------------
+# Footer Settings
+footer__description: AI와 개발, 그리고 생각들을 기록하는 공간입니다.
+
+
+# Social Links
+social:
+- {icon: "logo-github", link: "https://github.com/atinjin"}
+
+
+# Footer Navigation
+footer__menu__settings:
+  menu__items:
+    - title: 'Home'
+      url: '/'
+    - title: 'Blog'
+      url: '/blog/'
+    - title: 'About'
+      url: '/about/'
+
+
+#-------------------------------
+# Contact Settings
+contact:
+  email: atinjin@gmail.com
+  description: 궁금한 점이 있으시면 이메일로 연락해주세요.
+
+
+#-------------------------------
+# Comment Section (Disqus)
+disqus-identifier:
+
+
+#-------------------------------
+# Google Analytics
+google-analytics:
