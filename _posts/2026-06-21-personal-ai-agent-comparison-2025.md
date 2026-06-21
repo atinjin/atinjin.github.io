@@ -4,7 +4,7 @@ title: "2025–2026 로컬 실행 가능한 AI 에이전트 비교"
 description: "클라우드 없이 내 기기에서 돌아가는 AI 에이전트 7종 — Hermes Agent, Open Interpreter, Cline, aider, Rewind AI, AutoGPT, Home Assistant를 프라이버시·메모리·자율성 기준으로 비교합니다."
 date: 2026-06-21 09:00:00 +0900
 author: atin
-image: '/images/05.jpg'
+image: '/images/local-ai-terminal.jpg'
 tags: [ai, local-ai, open-source, privacy, hermes-agent]
 tags_color: '#0056fe'
 ---
@@ -29,7 +29,7 @@ tags_color: '#0056fe'
 | 카테고리 | 제품 | 포지션 |
 |----------|------|--------|
 | 범용 자율 에이전트 | Hermes Agent, Open Interpreter, AutoGPT | 자율 실행·자기 개선 |
-| AI 코딩 에이전트 | Cline, aider | 코드베이스 이해·로컬 LLM |
+| AI 코딩 에이전트 | Cline, aider, Pi | 코드베이스 이해·로컬 LLM |
 | 개인 메모리·라이프로그 | Rewind AI | 완전 로컬 타임라인 |
 | 스마트홈 특화 | Home Assistant AI | 3,000+ 디바이스 제어 |
 
@@ -82,6 +82,17 @@ VS Code/JetBrains 오픈소스 AI 에이전트 (63.6k ⭐). **`.clinerules`**로
 - **도구**: Git, 터미널, MCP 서버, 파일 시스템 전체
 - **과금**: 완전 무료 (로컬 모델 사용 시 0원)
 
+#### Pi (pi.dev)
+
+2026년 AI 코딩 에이전트 순위에서 Claude Code·Codex·Cursor와 나란히 비교되는 **최소주의 터미널 에이전트**. "도구에 맞춰 워크플로를 바꾸는 것이 아니라, 도구를 워크플로에 맞게 커스터마이징한다"는 철학. 필요한 시점에만 컨텍스트를 주입하는 lazy-loading 스킬 시스템으로 토큰 소모를 최소화합니다.
+
+- **메모리**: 트리 구조 세션 히스토리 (브랜치·내보내기), AGENTS.md / SYSTEM.md 프로젝트 지시
+- **로컬 모델**: Ollama 포함 15+ LLM 프로바이더, 세션 중 모델 전환 가능
+- **도구**: TypeScript 확장으로 커스텀 명령·도구·워크플로 추가
+- **운영 모드**: 대화형 TUI / JSON 출력 / RPC / SDK — 4가지
+- **컨텍스트 관리**: 오래된 메시지 자동 요약 (built-in compaction)
+- **과금**: 완전 무료 (MIT)
+
 #### aider
 
 터미널 기반 AI 페어 프로그래밍. Git 레포지토리에 자연스럽게 통합 — 변경 단위로 자동 커밋. 전체 코드베이스 구조 맵 자동 생성.
@@ -127,6 +138,7 @@ macOS에서 화면·음성을 **100% 로컬 암호화 저장**해 "모든 것을
 | Open Interpreter | ✗ | ✓ | ✓ | **OS 네이티브** | ✗ | 64K |
 | AutoGPT | 벡터 DB | ✓ | ✓ | 코드 실행 | ✗ | 185K |
 | Cline | `.clinerules` | ✓ | ✓ | 터미널 | ✗ | 63K |
+| Pi | 트리 세션 히스토리 | ✓ | ✓ | 터미널 | ✗ | — |
 | aider | 코드베이스 맵 | ✓ | ✓ | lint/test | ✗ | ~30K |
 | Rewind AI | **타임라인 전체** | ✓ | ✓ (온디바이스) | ✗ | ✗ | — |
 | Home Assistant | 스마트홈 DB | ✓ | ✓ | 자동화 룰 | **자동화 룰** | 73K |
@@ -150,6 +162,7 @@ macOS에서 화면·음성을 **100% 로컬 암호화 저장**해 "모든 것을
 ## 선택 가이드
 
 - **터미널·Git 중심 개발**: `aider` — 가장 가볍고 Git 통합이 자연스러움
+- **커스텀 워크플로 + 토큰 절약**: `Pi` — lazy-loading 스킬, 세션 브랜치, 모델 실시간 전환
 - **IDE에서 대규모 리팩터**: `Cline` — VS Code 안에서 멀티에이전트 팀 구성
 - **장기 기억이 필요한 개인 비서**: `Hermes Agent` — 세션 간 메모리 + 20+ 메시징 플랫폼
 - **OS 레벨 자동화**: `Open Interpreter` — 파일·브라우저·쉘 직접 제어
