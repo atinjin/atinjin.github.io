@@ -38,19 +38,6 @@ jobs:
           ruby-version: 3.3
           bundler-cache: true
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "lts/*"
-
-      - name: Build Chirpy JS assets
-        run: |
-          GEM_PATH="$(bundle info --path jekyll-theme-chirpy)"
-          npm install --prefix "$GEM_PATH"
-          npm run build --prefix "$GEM_PATH"
-          mkdir -p assets/js/dist
-          cp "$GEM_PATH"/assets/js/dist/*.min.js assets/js/dist/
-
       - name: Build site
         run: bundle exec jekyll build --destination "_site"
         env:
