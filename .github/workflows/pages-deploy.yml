@@ -46,7 +46,7 @@ jobs:
       - name: Build Chirpy JS assets
         run: |
           GEM_PATH="$(bundle info --path jekyll-theme-chirpy)"
-          npm ci --prefix "$GEM_PATH"
+          npm install --prefix "$GEM_PATH"
           npm run build --prefix "$GEM_PATH"
           mkdir -p assets/js/dist
           cp "$GEM_PATH"/assets/js/dist/*.min.js assets/js/dist/
