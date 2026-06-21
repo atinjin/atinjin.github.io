@@ -45,6 +45,20 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: false
+      toc: true
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+
 compress_html:
   clippings: all
   comments: all

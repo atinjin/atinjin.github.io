@@ -1,9 +1,11 @@
 ---
+layout: post
 title: "2025–2026 개인용 AI 에이전트 종합 비교"
 date: 2026-06-21 09:00:00 +0900
 categories: [AI, 에이전트]
 tags: [ai-agent, llm, chatgpt, claude, gemini, cursor, personal-ai]
 description: "ChatGPT부터 Cursor, Rewind AI, Perplexity까지 — 개인용 AI 에이전트 20종을 인터페이스·메모리·도구 연동 기준으로 비교 분석합니다."
+toc: true
 pin: true
 ---
 
