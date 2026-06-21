@@ -1,238 +1,167 @@
 ---
 layout: post
-title: "2025–2026 개인용 AI 에이전트 종합 비교"
-description: "ChatGPT부터 Cursor, Rewind AI, Perplexity까지 — 개인용 AI 에이전트 20종을 인터페이스·메모리·도구 연동 기준으로 비교 분석합니다."
+title: "2025–2026 로컬 실행 가능한 AI 에이전트 비교"
+description: "클라우드 없이 내 기기에서 돌아가는 AI 에이전트 7종 — Hermes Agent, Open Interpreter, Cline, aider, Rewind AI, AutoGPT, Home Assistant를 프라이버시·메모리·자율성 기준으로 비교합니다."
 date: 2026-06-21 09:00:00 +0900
 author: atin
 image: '/images/05.jpg'
-tags: [ai, llm, chatgpt, claude, gemini, cursor]
+tags: [ai, local-ai, open-source, privacy, hermes-agent]
 tags_color: '#0056fe'
 ---
 
-개인용 AI 에이전트 시장이 빠르게 성숙하고 있습니다. 2025–2026년 기준으로 어떤 제품들이 있고, 각각 어떤 강점을 갖는지 정리했습니다.
+클라우드 AI 전성시대지만 프라이버시·비용·지연시간 문제로 **로컬 실행**을 선택하는 사람이 늘고 있습니다. 내 기기나 자체 서버에서 실행 가능한 AI 에이전트 7종을 골라 비교했습니다.
 
-> 조사 기준일: 2026년 6월. 공식 사이트·저장소·공개 문서 기반.
+> 기준: 2026년 6월. 완전 로컬 또는 자가호스팅이 가능한 제품만 포함. 공식 사이트·저장소·공개 문서 기반.
+
+---
+
+## 왜 로컬인가?
+
+- **프라이버시**: 대화·파일·화면이 외부 서버로 전송되지 않음
+- **비용**: 로컬 모델 사용 시 API 과금 없음
+- **오프라인**: 인터넷 없이도 동작
+- **커스터마이징**: 시스템 프롬프트·모델·도구를 완전히 제어
 
 ---
 
 ## 카테고리 분류
 
-개인용 AI 에이전트는 크게 다섯 카테고리로 나뉩니다.
-
-| 카테고리 | 주요 제품 | 핵심 포지션 |
-|----------|-----------|------------|
-| 범용 어시스턴트 | Claude, ChatGPT, Gemini, Copilot | 가장 넓은 사용자층, 멀티모달 |
-| 개발자 특화 | Cursor, Devin, Cline, aider | 코드베이스 이해 + 자율 실행 |
-| 메모리·컨텍스트 특화 | Mem.ai, Rewind AI, Notion AI | 장기 기억·지식 관리 |
-| 오픈소스 자가호스팅 | Hermes Agent, Open Interpreter, AutoGPT, Home Assistant | 로컬 실행·완전 제어·자기 개선 |
-| 최신 주목작 | Rabbit r1, Perplexity, Motion AI | 새로운 형태·특화 도메인 |
+| 카테고리 | 제품 | 포지션 |
+|----------|------|--------|
+| 범용 자율 에이전트 | Hermes Agent, Open Interpreter, AutoGPT | 자율 실행·자기 개선 |
+| AI 코딩 에이전트 | Cline, aider | 코드베이스 이해·로컬 LLM |
+| 개인 메모리·라이프로그 | Rewind AI | 완전 로컬 타임라인 |
+| 스마트홈 특화 | Home Assistant AI | 3,000+ 디바이스 제어 |
 
 ---
 
 ## 제품별 프로파일
 
-### 범용 어시스턴트
+### 범용 자율 에이전트
 
-#### Claude (Anthropic)
+#### Hermes Agent (Nous Research)
 
-가장 강력한 추론 능력을 갖춘 어시스턴트. **Projects** 기능으로 200K 컨텍스트 내에서 문서·코드·지침을 묶어 관리합니다. Artifacts로 코드·다이어그램을 실시간 미리보기 가능합니다.
+2026년 2월 출시 후 4개월 만에 GitHub 스타 188K+를 달성한 **자기 개선형 오픈소스 에이전트**. 어려운 작업을 해결할 때마다 재사용 가능한 스킬 문서를 자동으로 작성해 점점 더 잘 처리합니다. 2026년 5월 기준 OpenRouter 최다 사용 에이전트.
 
-- **메모리**: Projects 단위 Knowledge Base (수동 파일 업로드)
-- **도구**: 웹 검색, 파일 분석, sandboxed Python 실행
-- **과금**: Free / Pro $20/월 / Team $30/인/월
+- **메모리**: MEMORY.md + USER.md 고정 주입 + SQLite FTS5 전체 대화 저장. 세션 간 컨텍스트 완전 유지
+- **로컬 모델**: Ollama, llama.cpp, LM Studio 등 모든 OpenAI 호환 엔드포인트 지원
+- **도구**: 웹 검색, Playwright 브라우저 자동화, 코드 실행, 이미지 생성, TTS, 비전 분석 등 40+
+- **플랫폼**: Telegram, Discord, Slack, WhatsApp, Signal, iMessage, Email 등 20+ 단일 에이전트
+- **실행 백엔드**: 로컬, Docker, SSH, Modal, Daytona
+- **자연어 스케줄러**: "매일 오전 9시에 뉴스 요약" 같은 명령으로 크론 등록
+- **과금**: 완전 무료 (MIT) — 호스팅 $4~25/월 + LLM API or 로컬 모델
 
-#### ChatGPT (OpenAI)
+#### Open Interpreter
 
-가장 넓은 생태계. **자동 장기 메모리**(대화에서 사실 자동 추출·저장)가 핵심 차별점입니다. Advanced Voice Mode로 실시간 감정 인식 음성 대화, Operator로 웹 액션 자동화.
+로컬 OS에서 코드·파일·브라우저를 직접 제어하는 에이전트. Rust 재작성으로 속도 개선. MCP + Agent Client Protocol 지원. DeepSeek·Kimi 등 저비용 로컬 모델 최적화 (64.1k ⭐).
 
-- **메모리**: 자동 추출 벡터 메모리 (사용자 편집 가능)
-- **도구**: 웹 검색, Python 실행, DALL-E, 파일 분석
-- **과금**: Free / Plus $20/월 / Pro $200/월
+- **메모리**: 세션 내 컨텍스트 (영구 메모리 없음)
+- **로컬 모델**: Ollama, LM Studio, llama.cpp 완전 지원
+- **도구**: OS 네이티브 코드 실행 (Python·Shell·JS), 파일 조작, 브라우저
+- **과금**: 완전 무료 (로컬 모델 사용 시 API 비용 0)
 
-#### Gemini Advanced (Google)
+#### AutoGPT
 
-Google Workspace에 가장 깊이 통합된 어시스턴트. Gmail·Docs·Meet·Calendar 내부 사이드바에서 직접 작동합니다. **1M 토큰 컨텍스트**, Project Astra(실시간 카메라 인식).
+블록 연결 방식 시각적 에이전트 빌더. 에이전트 마켓플레이스에서 사전 구성 에이전트 설치. 셀프호스팅 가능 (185k ⭐). Docker Compose 한 줄로 로컬 배포.
 
-- **메모리**: Google 계정 기반 히스토리, Workspace 문서가 실질적 컨텍스트
-- **도구**: Google Workspace 네이티브, 실시간 Search, YouTube, Maps
-- **과금**: Google One AI Premium $19.99/월
-
-#### Microsoft Copilot
-
-Microsoft 365에 내장. Word·Excel·PowerPoint·Outlook·Teams에서 직접 사용. **Recall**(Copilot+ PC) — 30일 스크린샷 벡터 인덱스로 "과거에 본 것" 검색.
-
-- **메모리**: Recall (Copilot+ PC 전용), M365 Graph를 통한 조직 문서
-- **도구**: 전체 M365, Bing 검색, Teams
-- **과금**: M365 Copilot $30/인/월
+- **메모리**: 벡터 DB (로컬 ChromaDB 또는 Pinecone)
+- **로컬 모델**: Ollama 통합 지원
+- **도구**: API 연동, 웹 검색, 파일, 코드 실행
+- **과금**: 완전 무료 (셀프호스팅 시)
 
 ---
 
-### 개발자 특화
-
-#### Cursor
-
-VS Code 기반 AI 네이티브 IDE. **Autonomy slider**로 에이전트 자율성을 실시간 조절. 전체 코드베이스를 인덱싱해서 "이 함수가 어디서 호출되는지" 수준의 이해가 가능합니다. 포춘 500 절반 이상 채택.
-
-- **메모리**: 코드베이스 벡터 인덱스
-- **도구**: Git, GitHub PR, Slack, 터미널, MCP 서버
-- **과금**: Individual $20/월 / Teams $40/인/월
-
-#### Devin (Cognition AI)
-
-자율 AI 소프트웨어 엔지니어. 다수 Devin을 병렬 운용해 전체 개발 사이클(이슈 접수→코드→PR→테스트)을 자동화. Datadog 인시던트부터 CI 장애 수정까지 파이프라인 구성 가능.
-
-- **메모리**: 팀 코드베이스 학습 + 세션 궤적 저장
-- **도구**: GitHub, Linear, Slack, Datadog, 100+ 개발 도구
+### AI 코딩 에이전트
 
 #### Cline
 
 VS Code/JetBrains 오픈소스 AI 에이전트 (63.6k ⭐). **`.clinerules`**로 팀 코딩 표준 강제. 코디네이터-스페셜리스트 멀티에이전트 팀 구성. 8M+ 설치.
 
-- **도구**: Git, 터미널, MCP 서버, 모든 주요 LLM
-- **과금**: 완전 무료 (LLM API 비용 별도)
+- **메모리**: `.clinerules` 규칙 파일 (영구), 세션 내 컨텍스트
+- **로컬 모델**: Ollama, LM Studio, 모든 OpenAI 호환 엔드포인트. 완전 오프라인 동작 가능
+- **도구**: Git, 터미널, MCP 서버, 파일 시스템 전체
+- **과금**: 완전 무료 (로컬 모델 사용 시 0원)
 
 #### aider
 
-터미널 기반 AI 페어 프로그래밍. Git 레포지토리에 자연스럽게 통합 — 변경 단위로 자동 커밋. 전체 코드베이스 구조 맵 자동 생성. Claude 3.7 Sonnet 최적 성능.
+터미널 기반 AI 페어 프로그래밍. Git 레포지토리에 자연스럽게 통합 — 변경 단위로 자동 커밋. 전체 코드베이스 구조 맵 자동 생성.
 
+- **메모리**: Git 히스토리가 실질적 컨텍스트, 코드베이스 맵 자동 생성
+- **로컬 모델**: Ollama 완전 지원. `--model ollama/llama3` 한 줄로 전환
 - **도구**: Git, lint/test 자동 실행, 음성→코드 변환
-- **과금**: 완전 무료 (LLM API 비용 별도)
+- **과금**: 완전 무료 (로컬 모델 사용 시 0원)
 
 ---
 
-### 메모리·컨텍스트 특화
-
-#### Mem.ai
-
-AI가 자동으로 노트를 정리·연결하는 지식 관리 도구. 태그 없이도 AI가 스스로 분류·추천. Slack·Gmail에서 직접 저장.
-
-- **메모리**: 벡터 기반 시맨틱 검색, 전체 워크스페이스가 AI 컨텍스트
-- **과금**: Free / Pro $8/월
+### 개인 메모리·라이프로그
 
 #### Rewind AI
 
 macOS에서 화면·음성을 **100% 로컬 암호화 저장**해 "모든 것을 기억". "지난주 미팅에서 뭘 얘기했지?"를 자연어로 검색. 클라우드에 전송되는 데이터 없음.
 
-- **메모리**: 완전 로컬 타임라인 인덱스 (시간순 + 앱별 + 시맨틱)
+- **메모리**: 완전 로컬 타임라인 인덱스 — 시간순 + 앱별 + 시맨틱 검색
+- **로컬 모델**: 온디바이스 처리 (Apple Silicon 최적화)
+- **도구**: 모든 Mac 앱 화면 캡처, 음성 녹음, 회의 요약
 - **과금**: $19/월
-
-#### Notion AI
-
-워크스페이스 전체를 AI 컨텍스트로 사용. **Custom Agents**(2026년 5월 출시), **Enterprise Search**(Slack·Drive·GitHub·Asana 통합 검색).
-
-- **메모리**: 워크스페이스 전체. 엔터프라이즈: 제로 데이터 리텐션 옵션
-- **도구**: Slack, Google Drive, GitHub, Asana
 
 ---
 
-### 오픈소스 자가호스팅
-
-#### Hermes Agent (Nous Research)
-
-2026년 2월 출시 후 4개월 만에 GitHub 스타 188K+를 달성한 **자기 개선형 오픈소스 에이전트**. "The Agent That Grows With You" — 어려운 작업을 해결할 때마다 재사용 가능한 스킬 문서를 자동으로 작성해 다음 번에는 더 잘 처리합니다. 2026년 5월 기준 OpenRouter에서 가장 많이 사용되는 AI 에이전트.
-
-- **메모리**: MEMORY.md + USER.md 고정 주입(세션 시작 시) + SQLite FTS5 전체 대화 저장. 세션 간 컨텍스트가 완전히 유지됨
-- **도구**: 웹 검색, Playwright 브라우저 자동화, 코드 실행, 이미지 생성, TTS, 비전 분석 등 40+
-- **플랫폼**: Telegram, Discord, Slack, WhatsApp, Signal, iMessage, Email, DingTalk 등 20+ 메시징 플랫폼 단일 에이전트로 처리
-- **실행 백엔드**: 로컬, Docker, SSH, Modal, Daytona — 클라우드 전송 없음
-- **모델**: Claude, GPT, Gemini, 로컬 Ollama 등 300+ 모델 선택 가능 (Hermes LLM 전용 아님)
-- **자연어 스케줄러**: "매일 아침 9시에 뉴스 요약" 같은 명령으로 크론 등록
-- **과금**: 완전 무료 (MIT) — 호스팅 $4~25/월 + LLM API $2~60/월
-
-#### Open Interpreter
-
-로컬 OS에서 코드 실행·브라우저 자동화. Rust 재작성으로 속도 개선. MCP + Agent Client Protocol 지원. DeepSeek·Kimi 등 저비용 모델 최적화 (64.1k ⭐).
-
-#### AutoGPT
-
-블록 연결 방식 시각적 에이전트 빌더. 에이전트 마켓플레이스에서 사전 구성 에이전트 설치. 셀프호스팅 가능 (185k ⭐).
+### 스마트홈 특화
 
 #### Home Assistant AI
 
 스마트홈 3,000+ 디바이스 통합. 완전 로컬 실행(Ollama/Llama 지원). 음성 명령으로 조명·온도·보안 직접 제어.
 
----
-
-### 최신 주목작
-
-#### Rabbit r1
-
-$199 일회성 구매, 구독 없음. rabbitOS 2.2: Claude Code 네이티브 접근, 무제한 녹음+AI 요약, DLAM 데스크톱 제어. 하드웨어 AI의 살아남은 사례.
-
-#### Humane AI Pin ⚠️
-
-2025년 서비스 종료. HP에 매각. 스마트폰 대체 하드웨어의 실패 사례 — 배터리·성능·가격($699+$24/월) 문제로 시장 외면.
-
-#### Perplexity
-
-모든 답변에 출처 인용. **Pro Search**로 심층 다단계 웹 검색. Spaces로 주제별 지식 공간. 실시간 데이터가 필요한 질문의 최강자.
-
-#### Motion AI
-
-AI가 업무·프로젝트·캘린더를 자동 계획·재계획. 변경 사항 발생 시 즉시 최적화. Outlook/Google/iCloud 통합.
+- **메모리**: 스마트홈 상태 DB, 자동화 룰
+- **로컬 모델**: Ollama + Llama 3 로컬 실행. 완전 오프라인 음성 명령 가능
+- **도구**: 3,000+ 디바이스, 자동화 스크립트, 음성 파이프라인
+- **과금**: 완전 무료 (하드웨어 비용 별도)
 
 ---
 
 ## 기능 비교 매트릭스
 
-| 제품 | 장기 메모리 | 멀티모달 | 개인 데이터 통합 | 코드 실행 | 로컬 실행 | 스케줄·알림 |
-|------|:----------:|:--------:|:--------------:|:--------:|:--------:|:----------:|
-| Claude | Projects (수동) | ✓ | ✗ | Sandbox | ✗ | ✗ |
-| ChatGPT | 자동 추출 | ✓ | Zapier | Python | ✗ | ✗ |
-| Gemini | 제한적 | ✓ | G-Suite 네이티브 | Colab | ✗ | 간접 |
-| Copilot | Recall (PC 전용) | ✓ | M365 네이티브 | ✗ | 일부 | 간접 |
-| Cursor | 코드베이스 인덱스 | ✓ (코드) | Git/GitHub | 에이전트 | ✗ | ✗ |
-| Cline | `.clinerules` | ✓ | Git | 터미널 | 로컬 LLM | ✗ |
-| aider | 코드베이스 맵 | ✓ | Git | lint/test | 로컬 LLM | ✗ |
-| Mem.ai | 전체 워크스페이스 | ✗ | Slack/Gmail | ✗ | ✗ | ✗ |
-| Rewind AI | 로컬 타임라인 전체 | ✓ | 모든 Mac 앱 | ✗ | **완전 로컬** | ✗ |
-| Notion AI | 워크스페이스 전체 | ✓ | Slack/Drive 등 | ✗ | ✗ | ✗ |
-| Hermes Agent | **세션 간 영구 메모리** | ✓ | 20+ 메시징 플랫폼 | 터미널·Docker | **완전 로컬** | **자연어 크론** |
-| Open Interpreter | ✗ | ✗ | 로컬 파일 | **OS 네이티브** | **완전 로컬** | ✗ |
-| AutoGPT | 벡터 DB | ✓ | API/웹 | 코드 실행 | 셀프호스팅 | ✗ |
-| Home Assistant | 스마트홈 DB | 음성 | 3,000+ 디바이스 | ✗ | **완전 로컬** | 자동화 룰 |
-| Perplexity | Spaces (주제별) | ✓ | ✗ | ✗ | ✗ | ✗ |
-| Motion AI | 작업 패턴 학습 | ✗ | 캘린더 3종 | ✗ | ✗ | **AI 자동 일정** |
+| 제품 | 영구 메모리 | 완전 로컬 | 로컬 LLM | 코드 실행 | 스케줄·알림 | GitHub ⭐ |
+|------|:----------:|:--------:|:--------:|:--------:|:----------:|:--------:|
+| Hermes Agent | **세션 간 유지** | ✓ | ✓ | 터미널·Docker | **자연어 크론** | 188K |
+| Open Interpreter | ✗ | ✓ | ✓ | **OS 네이티브** | ✗ | 64K |
+| AutoGPT | 벡터 DB | ✓ | ✓ | 코드 실행 | ✗ | 185K |
+| Cline | `.clinerules` | ✓ | ✓ | 터미널 | ✗ | 63K |
+| aider | 코드베이스 맵 | ✓ | ✓ | lint/test | ✗ | ~30K |
+| Rewind AI | **타임라인 전체** | ✓ | ✓ (온디바이스) | ✗ | ✗ | — |
+| Home Assistant | 스마트홈 DB | ✓ | ✓ | 자동화 룰 | **자동화 룰** | 73K |
 
 ---
 
-## 2025–2026 핵심 트렌드
+## 로컬 LLM 추천 조합
 
-### 1. Agentic Loop 주류화
+각 에이전트에 붙일 수 있는 로컬 모델 추천입니다 (Ollama 기준).
 
-단발 질문-응답에서 **계획→실행→검증 자율 루프**로의 전환이 완료됐습니다. OpenAI Operator, Claude Code, Cursor Background Agent, Devin이 모두 "사람이 최종 승인하되 AI가 알아서 처리"하는 패턴을 구현합니다. Anthropic이 제시한 Orchestrator-Workers 패턴이 업계 표준으로 정착했습니다.
-
-### 2. MCP 표준화
-
-Model Context Protocol(MCP)이 에이전트 도구 연결의 사실상 표준으로 부상했습니다. Cursor·Cline·Open Interpreter·Claude Code 모두 MCP를 지원하며, "에이전트가 무엇을 할 수 있는가"는 곧 "어떤 MCP 서버가 연결됐는가"로 귀결됩니다.
-
-### 3. Memory Graph
-
-벡터 검색을 넘어 **그래프 기반 지식 메모리**로 이동 중입니다. Mem.ai의 자동 연결, Personal.ai의 5단계 메모리 아키텍처, Rewind AI의 타임라인 인덱스가 방향을 선도합니다. "나만을 아는 AI"가 2026년 핵심 경쟁력입니다.
-
-### 4. Voice-First
-
-ChatGPT Advanced Voice Mode, Gemini Live, Copilot "Hey Copilot", Home Assistant Voice가 모두 음성 우선 인터페이스를 밀고 있습니다. 스크린 없는 AI는 아직 초기 단계지만, 음성+화면 혼합 인터페이스는 실용화 단계에 진입했습니다.
-
-### 5. 로컬 vs 클라우드 양극화
-
-프라이버시 중시(Rewind AI, Home Assistant, aider+Ollama)와 클라우드 초고성능(Devin, Claude Code, ChatGPT Operator)으로 시장이 양분됩니다. 중간 지점은 줄어드는 추세입니다.
-
-### 6. 하드웨어 AI의 실패와 교훈
-
-Humane AI Pin의 서비스 종료는 "스마트폰 대체" 개념의 한계를 입증했습니다. 소비자 AI 하드웨어는 스마트폰·스마트워치의 AI 강화(Apple Intelligence, Pixel AI)로 흡수되는 방향이 지배적입니다.
+| 용도 | 모델 | 최소 VRAM | 비고 |
+|------|------|-----------|------|
+| 일반 대화·작업 | Llama 3.3 70B | 40GB | 최고 품질 |
+| 8GB VRAM | Llama 3.2 3B / Qwen2.5 7B | 8GB | 경량 |
+| 코딩 | DeepSeek-Coder-V2 | 16GB | 코드 특화 |
+| 한국어 | EXAONE 3.5 32B | 20GB | LG AI Research |
+| 균형 | Mistral Small 24B | 16GB | 속도·품질 균형 |
 
 ---
 
-## 나의 관점: 어떤 에이전트를 언제 쓸까?
+## 선택 가이드
 
-- **코드 작업**: Cursor (IDE에서 바로) + aider (터미널, 간단한 변경)
-- **검색이 필요한 질문**: Perplexity (출처 확인 필수) or ChatGPT (일상 질문)
-- **긴 문서 분석·작성**: Claude (200K 컨텍스트, 추론 품질)
-- **일정·작업 관리**: Motion AI (자동 재계획) + Google Calendar
-- **개인 메모리 구축**: Rewind AI (Mac 사용자, 프라이버시 중시)
+- **터미널·Git 중심 개발**: `aider` — 가장 가볍고 Git 통합이 자연스러움
+- **IDE에서 대규모 리팩터**: `Cline` — VS Code 안에서 멀티에이전트 팀 구성
+- **장기 기억이 필요한 개인 비서**: `Hermes Agent` — 세션 간 메모리 + 20+ 메시징 플랫폼
+- **OS 레벨 자동화**: `Open Interpreter` — 파일·브라우저·쉘 직접 제어
+- **"나는 뭘 했지?" 검색**: `Rewind AI` (Mac 전용) — 화면·음성 로컬 아카이브
+- **스마트홈**: `Home Assistant AI` — 디바이스 통합 + 음성 완전 오프라인
+- **GUI로 에이전트 빌더**: `AutoGPT` — 비기술 사용자도 블록 조립으로 구성
 
-결국 2025년에는 **하나의 만능 에이전트보다 도메인별 전문 에이전트를 조합**하는 멀티-에이전트 워크플로우가 현실적인 선택입니다.
+---
+
+## 나의 조합
+
+코딩은 `aider + Qwen2.5-Coder-32B(로컬)`, 일상 대화·스케줄은 `Hermes Agent + Claude API`, Mac 회의 요약은 `Rewind AI`. 세 개를 목적별로 분리해서 사용합니다.
 
 ---
 
