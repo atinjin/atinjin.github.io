@@ -1,0 +1,61 @@
+theme: jekyll-theme-chirpy
+
+lang: ko-KR
+timezone: Asia/Seoul
+
+title: "Atin's Notes"
+tagline: "생각을 기록하는 공간"
+description: >-
+  AI, 개발, 그리고 생각들을 정리하는 개인 블로그.
+
+url: "https://atinjin.github.io"
+github:
+  username: atinjin
+
+social:
+  name: atinjin
+  email: atinjin@gmail.com
+  links:
+    - https://github.com/atinjin
+
+avatar: ""
+
+paginate: 10
+
+# Analytics (나중에 추가)
+# google_analytics:
+#   id: "UA-XXXXXXXX-X"
+
+comments:
+  provider: false
+
+assets:
+  self_host:
+    enabled: false
+
+pwa:
+  enabled: false
+  cache:
+    enabled: false
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  spaces: all
+  startings: []
+
+exclude:
+  - "*.gem"
+  - "*.gemspec"
+  - tools
+  - README.md
+  - LICENSE
+  - "*.config.js"
+  - package*.json
