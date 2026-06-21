@@ -1,5 +1,6 @@
 baseurl: ""
 url: "https://atinjin.github.io"
+repository: "atinjin/atinjin.github.io"
 
 markdown: kramdown
 permalink: /:title
